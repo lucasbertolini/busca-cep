@@ -21,6 +21,12 @@ body {
 .adicionarBtn:hover {
     text-decoration: underline;
 }
+.mensagemErro {
+    color:red;
+    font-weight:bold;
+    text-align:center;
+    font-size:20px;
+}
 .cepInput {
     font-size: 18px;
     font-weight: bold;
@@ -46,8 +52,8 @@ body {
 
 }
 
-@media screen and (min-width="410"){
+@media screen and (max-width:410px){
     .containerResultado {
-        padding:10px;
+        margin:10px;
     }
 }
