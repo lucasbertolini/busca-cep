@@ -7,16 +7,31 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: orange;
 }
+header {
+    background-color:lightblue;
+    height:60px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow:0 5px 7px grey;
+}
+.titulo{
+    padding-top:10px;
+    text-align:center;
+}
 .inputContainer {
     margin: 20px 0;
     display: flex;
     justify-content: center;
-
+    outline: none;
+}
+.cepInput:focus {
+    outline:none;
 }
 .adicionarBtn {
     border-radius: 10px;
     padding: 5px;
     font-weight: bold;
+    background-color: #43E9DE
 }
 .adicionarBtn:hover {
     text-decoration: underline;
@@ -51,9 +66,26 @@ body {
     margin-top: 10px;
 
 }
+footer {
+    font-size:18px;
+    position:fixed;
+    bottom: 10px;
+    left:40%;
+}
+.footerLink {
+    text-decoration:none;
+    color:black;
+}
+.footerLink:hover {
+    text-decoration:underline;
+
+}
 
 @media screen and (max-width:410px){
     .containerResultado {
         margin:10px;
+    }
+    footer {
+        left:20%;        
     }
 }
