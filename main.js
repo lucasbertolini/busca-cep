@@ -3,15 +3,39 @@ const adicionarBtn = document.querySelector('#adicionar');
 
 adicionarBtn.addEventListener('click', (event) => {
     event.preventDefault();
-    var cep = document.querySelector('#cepInput');
+    let cep = document.querySelector('#cepInput');
 
-    const API_LINK = `https://viacep.com.br/ws/${cep.value}/json/`
-    fetch(API_LINK) 
-    .then( response => response.json())
-    .then( response => {
-        criarElemento(response);
-    })
-    .catch(error => console.log(error));
+    if ( parseInt(cep.value) ){
+        console.log('numero');
+        const API_LINK = `https://viacep.com.br/ws/${cep.value}/json/`
+        fetch(API_LINK) 
+        .then( response => response.json())
+        .then( response => {
+            criarElemento(response);
+        })
+        .catch(error => console.log(error));
+
+    }else if(typeof cep.value === 'string') {
+        console.log('string');
+
+        let cepString = cep.value
+        cepString = cepString.replaceAll(' ', '/');
+        console.log(cepString);
+        const API_LINK = `https://viacep.com.br/ws/${cepString}/json/`
+        fetch(API_LINK) 
+        .then( response => response.json())
+        .then( response => {
+            
+            response.forEach((number, index) => {
+                criarElemento(response[index]);
+
+            })
+            
+        })
+        .catch(error => console.log(error));
+    }
+
+
     cep.value = "";
     cep.focus();
 
@@ -55,8 +79,6 @@ function criarElemento(valor) {
     uf.setAttribute('class', 'uf');
     uf.textContent = valor.uf;
     div.appendChild(uf);
-
-
 
 }
 
