@@ -48,6 +48,16 @@ header {
     border-radius: 10px;
     padding: 5px;
 }
+.tabela {
+    border: 2px solid black;
+}
+.tableHeadItem,
+.tableContent {
+    border: 2px solid black;
+    text-align:center;
+    padding:10px;
+}
+
 
 .resultado {
     display: flex;

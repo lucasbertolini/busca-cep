@@ -7,6 +7,9 @@ adicionarBtn.addEventListener('click', (event) => {
 
     if ( parseInt(cep.value) ){
         console.log('numero');
+        
+        /// caso os dados inseridos no input for numero uma regra de negocio diferente é aplicada ///
+
         const API_LINK = `https://viacep.com.br/ws/${cep.value}/json/`
         fetch(API_LINK) 
         .then( response => response.json())
@@ -18,6 +21,8 @@ adicionarBtn.addEventListener('click', (event) => {
     }else if(typeof cep.value === 'string') {
         console.log('string');
 
+        // caso os dados inseridos no input for uma string muda a regra de negocio //
+        // **  [a-zA-Z]+\s+[a-zA-Z]+\s+[a-zA-Z]+\s+[a-zA-Z]+\s+[a-zA-Z]+\s+[a-zA-Z]+   ** //
         let cepString = cep.value
         cepString = cepString.replaceAll(' ', '/');
         console.log(cepString);
@@ -25,7 +30,6 @@ adicionarBtn.addEventListener('click', (event) => {
         fetch(API_LINK) 
         .then( response => response.json())
         .then( response => {
-            
             response.forEach((number, index) => {
                 criarElemento(response[index]);
 
