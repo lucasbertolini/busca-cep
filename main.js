@@ -24,7 +24,6 @@ adicionarBtn.addEventListener('click', (event) => {
                     cabecalhoConteudo(cabecalhoValores[index]);
 
                 });
-                
                 tabelaCriada = true;
                 novaLinha()
                 console.log(response)
@@ -48,16 +47,20 @@ adicionarBtn.addEventListener('click', (event) => {
         .then( response => response.json())
         .then( response => {
             response.forEach((number, index) => {
-                criarElemento(response[index]);
+                confereCep(response[index]);
                 criarTabela();
                 criarCabecalhoTabela();
                 cabecalhoValores.forEach((number, index) => {   
-                    cabecalhoConteudo(response, cabecalhoValores[index]);
+                    cabecalhoConteudo(cabecalhoValores[index]);
 
                 });
-                if(tabelaCriada) novaLinha();
-                Object.entries(response).forEach((number, index) => {
-                   tabelaConteudo(response, API_REQUEST_VALUE[index]);  
+                tabelaCriada = true;
+                novaLinha();
+                
+                let contentArray = Object.entries(response);
+                contentArray.forEach((number, index) => {
+                    console.log(contentArray)
+                   tabelaConteudo(response[index], API_REQUEST_VALUE[index]);  
                 })
             })
         })
